@@ -6,7 +6,7 @@ Use pi in a WSL terminal for tutoring and use Codex to develop and maintain this
 
 The first milestone is one working interactive fractions quiz in pi: present a question, collect an answer, show grading and feedback, and save progress. The next milestone is a coding lesson in which the learner edits a real file, runs tests, receives hints, and completes a follow-up exercise.
 
-This plan supersedes the Codex-hosted tutoring direction proposed in `../handoff.md`. The handoff remains historical context. No working pi session or coding exercise has been validated yet.
+This plan supersedes the Codex-hosted tutoring direction proposed in `../handoff.md`. The handoff remains historical context. The user has reported a working fractions quiz in pi. The first coding exercise has a tested starter and launcher; a complete learner session and progress resumption remain unverified.
 
 ## Status conventions
 
@@ -32,12 +32,12 @@ Evidence: repository inspection and the user's decisions in the planning convers
 
 - [Planned] Confirm Git remotes, fork ownership, branch, and existing local changes. Establish an identifiable upstream reference before changing original components.
 - [Complete] Check Linux `node`, `npm`, and `npx` resolution in WSL and record versions. Verified 2026-10-22: all resolve under `/home/ajkerr1/.nvm/versions/node/v24.22.0/bin`; Node v24.22.0 and npm 12.2.0.
-- [Complete] Check whether pi is installed, identify its version, and compare its extension API with the bundled code. Verified pi 1.4.0 after user installation; both bundled tools register through its extension loader with no errors or warnings. Interactive rendering and grading remain to be tested.
-- [Planned] Verify an available model provider and authentication method for pi without recording credentials.
+- [Complete] Check whether pi is installed, identify its version, and compare its extension API with the bundled code. Verified pi 1.4.0 after user installation; both bundled tools register through its extension loader with no errors or warnings. The user subsequently reported a working fractions quiz; detailed outcome coverage remains pending.
+- [Complete] Verify an available model provider and authentication method for pi without recording credentials. User reported successful OpenAI subscription login and a working GPT 6 quiz; GPT-5.5 was rejected for this account.
 - [Planned] Inspect the actual upstream licenses for this repository and Alvarmethod before copying or redistributing material. Record any unresolved permissions and how they affect implementation.
 - [Planned] Document the verified setup and remaining prerequisites in `docs/`.
 
-Verification notes (2026-10-22): `origin` is `git@github.com:sandykerr/learn.git`, branch `main`, HEAD `7cfd894`. Only `docs/` and `handoff.md` are untracked; no tracked modifications were reported. WSL2 is confirmed. Pi was initially absent; the user subsequently installed pi 1.4.0 through npm. Its loader supplies compatibility aliases for the older `@mariozechner` imports. A direct loader check registered `quiz` and `ask_user_question` without errors or warnings; no model request or interactive quiz was run. No upstream license file was found locally or in the original repository root listing; fetching Alvarmethod’s LICENSE failed, so its actual license remains unverified. The user selected their existing Codex/ChatGPT Pro subscription. Installed pi offers OpenAI → Sign in with ChatGPT; authentication and account access remain pending.
+Verification notes (2026-10-22): `origin` is `git@github.com:sandykerr/learn.git`, branch `main`, HEAD `7cfd894`. Only `docs/` and `handoff.md` are untracked; no tracked modifications were reported. WSL2 is confirmed. Pi was initially absent; the user subsequently installed pi 1.4.0 through npm. Its loader supplies compatibility aliases for the older `@mariozechner` imports. A direct loader check registered `quiz` and `ask_user_question` without errors or warnings; no model request or interactive quiz was run. No upstream license file was found locally or in the original repository root listing; fetching Alvarmethod’s LICENSE failed, so its actual license remains unverified. The user selected their existing Codex/ChatGPT Pro subscription. Installed pi offers OpenAI → Sign in with ChatGPT; the user subsequently reported successful login and a working GPT 6 fractions quiz.
 
 Completion criteria: the intended checkout is identified, runtime prerequisites are known, and licensing constraints are recorded before dependent copying or distribution work.
 
@@ -53,9 +53,9 @@ Completion criteria: the intended checkout is identified, runtime prerequisites 
 
 Completion criteria: a documented command starts pi in WSL with the required teaching skill and question tools loaded, without extension errors.
 
-## 4. [Planned] Complete one interactive fractions quiz
+## 4. [In-Progress] Complete one interactive fractions quiz
 
-- [Planned] Run a small, deterministic fractions question through the existing quiz UI.
+- [Complete] Run a small, deterministic fractions question through the existing quiz UI. User reported success; individual outcome paths and persistence are not yet verified.
 - [Planned] Verify that the answer and explanation remain hidden in the learner-facing UI until submission.
 - [Planned] Check correct, incorrect, “I don't know,” and cancellation outcomes.
 - [Planned] Confirm the tutor receives the selected answer and result and can respond appropriately.
@@ -77,16 +77,18 @@ Completion criteria: the learner completes a real terminal quiz, receives feedba
 
 Completion criteria: pi follows the personalized instructions and uses the chosen progress files consistently across sessions.
 
-## 6. [Planned] Add practical coding exercises
+## 6. [In-Progress] Add practical coding exercises
 
-- [Planned] Select the first programming language and a small learning objective with the learner.
-- [Planned] Create an exercise workspace with clear instructions, starter files, and a documented run/test command.
-- [Planned] Define tutor behavior: let the learner attempt the task, inspect their code, give progressively stronger hints, and reveal a full solution when requested or agreed.
-- [Planned] Separate learner work from reference solutions and avoid overwriting an attempt during feedback.
-- [Planned] Add meaningful tests for expected behavior and relevant edge cases. Use code review and explanation checks for qualities tests cannot establish.
+- [Complete] Select the first programming language and a small learning objective with the learner.
+- [Complete] Create an exercise workspace with clear instructions, starter files, and a documented run/test command.
+- [Complete] Define tutor behavior: let the learner attempt the task, inspect their code, give progressively stronger hints, and reveal a full solution when requested or agreed.
+- [Complete] Separate learner work from reference solutions and avoid overwriting an attempt during feedback.
+- [Complete] Add meaningful tests for expected behavior and relevant edge cases. Use code review and explanation checks for qualities tests cannot establish.
 - [Planned] Incorporate debugging and explaining why a solution works, alongside getting tests to pass.
 - [Planned] Save demonstrated skills, misconceptions, hints used, and a suggested next exercise.
 - [Planned] Run one complete coding lesson followed by a related task the learner solves independently.
+
+Implementation evidence: [experiment runner exercise](../exercises/experiment_runner/README.md), six passing stdlib behavioral tests (including numeric overflow rejection), and an offline pi 1.4.0 resource-loader check confirming both quiz tools, the documentation skill, and tutor instructions. Python is the selected language; responsibility boundaries and composition are the first objective. No reference solution is included. Tutor behavior is instructed, not yet validated in a live lesson.
 
 Completion criteria: the learner writes and runs real code, receives evidence-based feedback, and demonstrates transfer on a follow-up task. This is the second working milestone.
 

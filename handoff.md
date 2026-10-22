@@ -1,6 +1,6 @@
 # Pi tutoring system: handoff
 
-Last updated: 2026-10-15.
+Last updated: 2026-10-22.
 
 ## Intent
 
@@ -11,6 +11,14 @@ This replaces the earlier proposal to host tutoring and a custom quiz interface 
 The current checkout is `/home/ajkerr1/development/learn`. Fork ownership and remotes have not been verified. No components have been ported or runtime setup validated during this follow-up.
 
 The implementation roadmap is [docs/implementation-plan.md](docs/implementation-plan.md). It contains numbered steps, sub-steps, completion criteria, and the user's requested status labels: `[Complete]`, `[Planned]`, `[In-Progress]`, `[Deferred]`, and `[Skipped]`. Keep it updated as work proceeds.
+
+## Current exercise entry point
+
+The first coding exercise is ready at [exercises/experiment_runner/README.md](exercises/experiment_runner/README.md). Start it from the repository root with `bash scripts/start-coding-exercise.sh`. It uses a working, deliberately tangled fake-model runner and six passing stdlib behavioral tests. The learner refactors it; no solution is supplied. Tutor instructions guide hints, design review, follow-up tasks, and learning journals. An offline pi 1.4.0 loader check verified the resources; live tutoring and saved-progress resumption still require learner validation.
+
+The user reported successful OpenAI subscription login and a working fractions quiz with GPT 6. The earlier GPT-5.5 selection failed for their account. The launcher uses saved model settings and does not change them.
+
+Repository development now follows the root [SKILL.md](SKILL.md): propose a main-agent/subagent setup and wait for approval before each new task. The exercise was implemented with the approved main agent plus two subagents. See [docs/README.md](docs/README.md) for navigation. Older statements below are historical where superseded by this section.
 
 ## Setup verification update — 2026-10-22
 
